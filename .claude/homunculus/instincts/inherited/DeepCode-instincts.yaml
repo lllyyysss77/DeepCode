@@ -1,0 +1,680 @@
+# Instincts generated from https://github.com/lllyyysss77/DeepCode
+# Generated: 2026-08-02T07:17:21.848Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: DeepCode-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/DeepCode
+---
+
+# DeepCode Commit Length
+
+## Action
+
+Keep commit messages concise (~49 characters)
+
+## Evidence
+
+- Average commit message length: 49 chars
+- Based on 100 commits
+
+---
+id: DeepCode-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/DeepCode
+---
+
+# DeepCode Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: DeepCode-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/DeepCode
+---
+
+# DeepCode Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: DeepCode-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/DeepCode
+---
+
+# DeepCode Export Style
+
+## Action
+
+Prefer default exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: default
+
+---
+id: DeepCode-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/DeepCode
+---
+
+# DeepCode Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: 
+
+---
+id: DeepCode-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/DeepCode
+---
+
+# DeepCode Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: DeepCode-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/DeepCode
+---
+
+# DeepCode Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: 
+
+---
+id: DeepCode-workflow-refactoring
+trigger: "when refactoring code"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/DeepCode
+---
+
+# DeepCode Workflow Refactoring
+
+## Action
+
+Follow the refactoring workflow:
+1. Ensure tests pass before refactor
+2. Refactor code structure
+3. Verify tests still pass
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: src/**/*
+
+---
+id: DeepCode-workflow-code-implementation-workflow-update
+trigger: "when doing code implementation workflow update"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/DeepCode
+---
+
+# DeepCode Workflow Code Implementation Workflow Update
+
+## Action
+
+Follow the code-implementation-workflow-update workflow:
+1. Edit workflows/code_implementation_workflow.py and workflows/code_implementation_workflow_index.py
+2. Often update workflows/agent_orchestration_engine.py
+3. Update related agent files in workflows/agents/
+4. Update utils/loop_detector.py, utils/model_limits.py, or utils/file_processor.py if needed
+5. Update requirements.txt if dependencies change
+6. Update UI or handlers if pipeline output changes
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: workflows/code_implementation_workflow.py, workflows/code_implementation_workflow_index.py, workflows/agent_orchestration_engine.py
+
+---
+id: DeepCode-workflow-configuration-and-secrets-hygiene
+trigger: "when doing configuration and secrets hygiene"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/DeepCode
+---
+
+# DeepCode Workflow Configuration And Secrets Hygiene
+
+## Action
+
+Follow the configuration-and-secrets-hygiene workflow:
+1. Edit mcp_agent.config.yaml and/or mcp_agent.secrets.yaml
+2. Edit .gitignore to add or remove secret/config patterns
+3. Update requirements.txt if new env vars or providers are added
+4. Document changes in README.md or add .env.example
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: mcp_agent.config.yaml, mcp_agent.secrets.yaml, .gitignore
+
+---
+id: DeepCode-workflow-ui-release-or-major-update
+trigger: "when doing ui release or major update"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/DeepCode
+---
+
+# DeepCode Workflow Ui Release Or Major Update
+
+## Action
+
+Follow the ui-release-or-major-update workflow:
+1. Add or update files in new_ui/backend/ and new_ui/frontend/
+2. Update assets/icons/ and assets/NewUI.png
+3. Update README.md and README_ZH.md to reflect UI changes
+4. Update ui/components.py, ui/handlers.py, ui/layout.py, ui/sidebar_feed.py, ui/styles.py if legacy UI is affected
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: new_ui/backend/*, new_ui/frontend/*, assets/icons/*
+
+---
+id: DeepCode-workflow-version-bump-and-changelog-update
+trigger: "when doing version bump and changelog update"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/DeepCode
+---
+
+# DeepCode Workflow Version Bump And Changelog Update
+
+## Action
+
+Follow the version-bump-and-changelog-update workflow:
+1. Edit __init__.py to update the version string
+2. Update CHANGELOG.md with new release notes
+3. Update README.md and README_ZH.md if needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: __init__.py, CHANGELOG.md, README.md
+
+---
+id: DeepCode-workflow-nanobot-integration-or-update
+trigger: "when doing nanobot integration or update"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/DeepCode
+---
+
+# DeepCode Workflow Nanobot Integration Or Update
+
+## Action
+
+Follow the nanobot-integration-or-update workflow:
+1. Add or update files under nanobot/ (including agent, bridge, skills, workspace, config)
+2. Update nanobot_config.json.example
+3. Update README.md or assets/nanobot.png if branding or docs change
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: nanobot/*, nanobot/nanobot/*, nanobot_config.json.example
+
+---
+id: DeepCode-workflow-docker-support-update
+trigger: "when doing docker support update"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/DeepCode
+---
+
+# DeepCode Workflow Docker Support Update
+
+## Action
+
+Follow the docker-support-update workflow:
+1. Edit or add files under deepcode_docker/ (Dockerfile, docker-compose.yml, entrypoint, run scripts)
+2. Edit .dockerignore
+3. Update README.md and/or README_ZH.md to document Docker usage
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: deepcode_docker/Dockerfile, deepcode_docker/docker-compose.yml, deepcode_docker/docker-entrypoint.sh
+
+---
+id: DeepCode-workflow-bugfix-multi-file-pipeline
+trigger: "when doing bugfix multi file pipeline"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/DeepCode
+---
+
+# DeepCode Workflow Bugfix Multi File Pipeline
+
+## Action
+
+Follow the bugfix-multi-file-pipeline workflow:
+1. Edit tools/pdf_converter.py, utils/file_processor.py, utils/loop_detector.py, utils/model_limits.py as needed
+2. Edit workflows/agent_orchestration_engine.py and workflows/code_implementation_workflow.py
+3. Update requirements.txt if dependencies are affected
+4. Update UI or handlers if user-facing behavior changes
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: tools/pdf_converter.py, utils/file_processor.py, utils/loop_detector.py
+
+---
+id: deepcode-instinct-naming-files-camelCase
+trigger: "When creating or renaming a file."
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/DeepCode
+---
+
+# Deepcode Instinct Naming Files CamelCase
+
+## Action
+
+Use camelCase for file names.
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.files
+
+---
+id: deepcode-instinct-naming-functions-camelCase
+trigger: "When defining a function."
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/DeepCode
+---
+
+# Deepcode Instinct Naming Functions CamelCase
+
+## Action
+
+Use camelCase for function names.
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.functions
+
+---
+id: deepcode-instinct-naming-classes-PascalCase
+trigger: "When defining a class."
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/DeepCode
+---
+
+# Deepcode Instinct Naming Classes PascalCase
+
+## Action
+
+Use PascalCase for class names.
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.classes
+
+---
+id: deepcode-instinct-naming-constants-SCREAMING_SNAKE_CASE
+trigger: "When defining a constant."
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/DeepCode
+---
+
+# Deepcode Instinct Naming Constants SCREAMING_SNAKE_CASE
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constants.
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.constants
+
+---
+id: deepcode-instinct-imports-relative
+trigger: "When importing modules."
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/DeepCode
+---
+
+# Deepcode Instinct Imports Relative
+
+## Action
+
+Use relative imports.
+
+## Evidence
+
+- Pattern in codeStyle.importStyle
+
+---
+id: deepcode-instinct-exports-default
+trigger: "When exporting modules."
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/DeepCode
+---
+
+# Deepcode Instinct Exports Default
+
+## Action
+
+Use default export style.
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle
+
+---
+id: deepcode-instinct-testing-separate-folder
+trigger: "When adding tests for a feature or module."
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: lllyyysss77/DeepCode
+---
+
+# Deepcode Instinct Testing Separate Folder
+
+## Action
+
+Place tests in a separate test directory, not mixed with source files.
+
+## Evidence
+
+- Pattern in architecture.folderStructure.testLocation
+
+---
+id: deepcode-instinct-testing-after-feature
+trigger: "When implementing a new feature."
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: lllyyysss77/DeepCode
+---
+
+# Deepcode Instinct Testing After Feature
+
+## Action
+
+Add tests for the feature immediately after implementation.
+
+## Evidence
+
+- feature-development workflow: commitSequence includes 'Add tests for feature' after implementation
+
+---
+id: deepcode-instinct-git-commit-prefix
+trigger: "When writing a commit message."
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: lllyyysss77/DeepCode
+---
+
+# Deepcode Instinct Git Commit Prefix
+
+## Action
+
+Start the commit message with a conventional prefix (feat, fix, docs, refactor, chore, merge).
+
+## Evidence
+
+- Pattern in commits.prefixes
+- Examples: 'fix: enforce JSON-only resource processor output', 'feat: add multi-model support...'
+
+---
+id: deepcode-instinct-git-commit-length
+trigger: "When writing a commit message."
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: lllyyysss77/DeepCode
+---
+
+# Deepcode Instinct Git Commit Length
+
+## Action
+
+Keep the commit message concise (average ~49 characters).
+
+## Evidence
+
+- Pattern in commits.averageLength
+- Examples in commits.examples
+
+---
+id: deepcode-instinct-workflow-code-implementation-update
+trigger: "When improving, fixing, or refactoring the code implementation pipeline."
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/DeepCode
+---
+
+# Deepcode Instinct Workflow Code Implementation Update
+
+## Action
+
+Edit workflows/code_implementation_workflow.py and workflows/code_implementation_workflow_index.py; update related agent, utils, requirements, and UI files as needed.
+
+## Evidence
+
+- code-implementation-workflow-update workflow
+- Files involved: workflows/code_implementation_workflow.py, etc.
+
+---
+id: deepcode-instinct-workflow-config-secrets-hygiene
+trigger: "When updating configuration, secrets, or .gitignore for security or environment setup."
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/DeepCode
+---
+
+# Deepcode Instinct Workflow Config Secrets Hygiene
+
+## Action
+
+Edit mcp_agent.config.yaml and/or mcp_agent.secrets.yaml; update .gitignore, requirements.txt, and document in README.md or .env.example.
+
+## Evidence
+
+- configuration-and-secrets-hygiene workflow
+- Files involved: mcp_agent.config.yaml, .gitignore, etc.
+
+---
+id: deepcode-instinct-workflow-ui-release-major-update
+trigger: "When releasing a new UI version or making major UI changes."
+confidence: 0.93
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/DeepCode
+---
+
+# Deepcode Instinct Workflow Ui Release Major Update
+
+## Action
+
+Update new_ui/backend/, new_ui/frontend/, assets/icons/, assets/NewUI.png, README.md, README_ZH.md, and legacy UI files if affected.
+
+## Evidence
+
+- ui-release-or-major-update workflow
+- Files involved: new_ui/backend/*, assets/icons/*, etc.
+
+---
+id: deepcode-instinct-workflow-version-bump-changelog
+trigger: "When releasing a new version."
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/DeepCode
+---
+
+# Deepcode Instinct Workflow Version Bump Changelog
+
+## Action
+
+Edit __init__.py to update the version string; update CHANGELOG.md and README files as needed.
+
+## Evidence
+
+- version-bump-and-changelog-update workflow
+- Files involved: __init__.py, CHANGELOG.md, etc.
+
+---
+id: deepcode-instinct-workflow-nanobot-integration-update
+trigger: "When adding or updating nanobot integration."
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/DeepCode
+---
+
+# Deepcode Instinct Workflow Nanobot Integration Update
+
+## Action
+
+Add or update files under nanobot/; update nanobot_config.json.example and README.md or assets/nanobot.png if branding/docs change.
+
+## Evidence
+
+- nanobot-integration-or-update workflow
+- Files involved: nanobot/*, nanobot_config.json.example, etc.
+
+---
+id: deepcode-instinct-workflow-docker-support-update
+trigger: "When improving Docker deployment or adding Docker features."
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/DeepCode
+---
+
+# Deepcode Instinct Workflow Docker Support Update
+
+## Action
+
+Edit or add files under deepcode_docker/; update .dockerignore and document Docker usage in README.md/README_ZH.md.
+
+## Evidence
+
+- docker-support-update workflow
+- Files involved: deepcode_docker/Dockerfile, .dockerignore, etc.
+
+---
+id: deepcode-instinct-workflow-bugfix-multi-file-pipeline
+trigger: "When fixing a bug that affects multiple pipeline stages."
+confidence: 0.88
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/DeepCode
+---
+
+# Deepcode Instinct Workflow Bugfix Multi File Pipeline
+
+## Action
+
+Edit relevant pipeline files (e.g., tools/pdf_converter.py, utils/file_processor.py, workflows/agent_orchestration_engine.py, etc.) and update requirements/UI if needed.
+
+## Evidence
+
+- bugfix-multi-file-pipeline workflow
+- Files involved: tools/pdf_converter.py, utils/file_processor.py, etc.
+
